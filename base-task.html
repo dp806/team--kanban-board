@@ -1,0 +1,40 @@
+﻿
+<!-- index.html（项目根目录） -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Kanban Board</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- 共用样式文件 -->
+</head>
+<body>
+    <div class="container">
+        <h1>团队任务看板</h1>
+        <!-- 功能按钮区（供前端B开发创建/删除功能） -->
+        <div class="btn-group">
+            <button id="addTaskBtn">添加新任务</button>
+        </div>
+        <!-- 看板列容器（供前端A开发布局，前端C开发拖拽） -->
+        <div class="kanban-board">
+            <div class="kanban-column" data-status="todo">
+                <h2>待处理</h2>
+                <div class="column-content" id="todoList"></div>
+            </div>
+            <div class="kanban-column" data-status="doing">
+                <h2>进行中</h2>
+                <div class="column-content" id="doingList"></div>
+            </div>
+            <div class="kanban-column" data-status="done">
+                <h2>已完成</h2>
+                <div class="column-content" id="doneList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入各功能模块脚本（按分工拆分，避免冲突） -->
+    <script src="js/base.js"></script> <!-- 基础初始化脚本 -->
+    <script src="js/ui-task-card.js"></script> <!-- 前端A：卡片UI -->
+    <script src="js/task-crud.js"></script> <!-- 前端B：增删功能 -->
+    <script src="js/task-drag.js"></script> <!-- 前端C：拖拽功能 -->
+</body>
+</html>
